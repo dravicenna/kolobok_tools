@@ -9,8 +9,10 @@ async function autoLogin() {
     if (isAutoLoginAvailable) {
         let userAccount = wax.userAccount;
         let pubKeys = wax.pubKeys;
-        let str = 'AutoLogin enabled for account: ' + userAccount + '<br/>Active: ' + pubKeys[0] + '<br/>Owner: ' + pubKeys[1]
-        document.getElementById('autologin').insertAdjacentHTML('beforeend', str);
+        // let str = 'AutoLogin enabled for account: ' + userAccount + '<br/>Active: ' + pubKeys[0] + '<br/>Owner: ' + pubKeys[1]
+        let str = 'AutoLogin enabled for account: ' + userAccount;
+        document.getElementById('autologin').textContent =  str;
+        document.getElementById('loginbtn').style.display = 'none';
     }
     else {
         document.getElementById('autologin').insertAdjacentHTML('beforeend', 'Not auto-logged in');
@@ -27,10 +29,10 @@ async function login() {
         let pubKeys = wax.pubKeys;
         let str = 'Account: ' + userAccount
         // let str = 'Account: ' + userAccount + '<br/>Active: ' + pubKeys[0] + '<br/>Owner: ' + pubKeys[1]
-        document.getElementById('loginresponse').insertAdjacentHTML('beforeend', str);
-        document.getElementById('autologin').style.display = 'none'
-        const loginDiv = document.getElementsByClassName('login');
-        loginDiv[0].style.display = 'none';
+        document.getElementById('loginresponse').textContent =  str;
+        document.getElementById('autologin').style.display = 'none';
+        document.getElementById('loginbtn').style.display = 'none';
+        // document.getElementsByClassName('login').style.display = 'none';
     } catch (e) {
         document.getElementById('loginresponse').append(e.message);
     }
@@ -65,8 +67,11 @@ try {
     blocksBehind: 3,
     expireSeconds: 30
     });
-    document.getElementById('response').append(JSON.stringify(result, null, 2))
+    var trx_id = result['transaction_id'];
+    var str = 'Done! Transaction # ' + trx_id;
+    document.getElementById('response').textContent = str;
+    // document.getElementById('response').textContent = JSON.stringify(result, null, 2);
 } catch(e) {
-    document.getElementById('response').append(e.message);
+    document.getElementById('response').textContent = e.message;
 }
 }
