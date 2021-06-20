@@ -5,6 +5,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* canvas {
+  height: 200px !important;
+  width: 400px !important;
+  align-items: center;
+} */
 html, body{
   background:#24171e;
 }
@@ -35,13 +40,17 @@ div h4{
   margin-bottom:10px;
 
 }
+div .row{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.chart-container{
+  position:relative;
+  top:20px;
+}
 .container{
   position:relative;
-  top:100px;
-}
-
-.container h1, .container span{
-  /* font-family:"Pt Sans", helvetica, sans-serif; */
+  top:20px;
 }
 
 .container h1{
@@ -81,10 +90,6 @@ div h4{
 form{
   margin-top:25px;
   display:inline-block;
-}
-
-.fields{
-  /* border-left:2px solid #4c2639 */
 }
 
 .container span{
