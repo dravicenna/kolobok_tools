@@ -1,7 +1,7 @@
 
 // data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}]
 // Chart.defaults.datasets.line.showLine = false;
-const SCOPE_PRICE = 25
+const SCOPE_PRICE = 30
 const API_URL_KOLOB = `https://wax.simplemarket.io/api/v2/market?skip=0&limit=${SCOPE_PRICE}&&authors=ilovekolobok&asset.mdata.health.raw=100&sortOrder=1&isVerifiedOnly=true`
 const API_URL_COMMON_PRICE = `https://wax.simplemarket.io/api/v2/market?skip=0&limit=${SCOPE_PRICE}&&authors=ilovekolobok&categories=prize&asset.idata.class.raw=common&sortOrder=1&isVerifiedOnly=true`
 const API_URL_UNCOMMON_PRICE = `https://wax.simplemarket.io/api/v2/market?skip=0&limit=${SCOPE_PRICE}&&authors=ilovekolobok&categories=prize&asset.idata.class.raw=uncommon&sortOrder=1&isVerifiedOnly=true`
@@ -67,12 +67,14 @@ async function render(data){
     var ctx = document.getElementById(category);
 
     p = [] // Represent array of prices
-    data.forEach(function(i) {p.push(i.cryptoPrice)})
+    data.forEach(function(i) {
+        p.push(i.cryptoPrice);
+    })
     var sum = p.reduce((a, b) => a + b, 0);
     var avg = (sum / p.length) || 0;
     var min = Math.min.apply(Math, p)
-    p = p.slice(1, 20)
-    label = category+' MIN: '+ min.toFixed(4) + ' AVG: ' + String(avg.toFixed(4))
+    p = p.slice(0, 20)
+    label = category+' min: '+ min.toFixed(4) + ' median: ' + String(avg.toFixed(4))
     var text_field = document.getElementsByName(category);
     text_field[0].textContent = label
     var myChart = new Chart(ctx, {
@@ -80,7 +82,6 @@ async function render(data){
     data: {
         labels: p,
         datasets: [{
-            axis: 'y',
             label: label,
             data: p,
             backgroundColor: [
