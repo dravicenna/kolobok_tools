@@ -1,0 +1,89 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="drAvicenna">
+      <title>Kolobok Price Information</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/mystyle.css">
+      
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9DM72RRTLV"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+  
+        gtag('config', 'G-9DM72RRTLV');
+      </script>
+       <!-- Google Tag Manager -->
+       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PFX8QQC');</script>
+        <!-- End Google Tag Manager -->
+  </head>
+
+  <body class="text-center">
+ 
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFX8QQC" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+        <div class="container">
+          <div>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+              <a class="nav-link" aria-current="page" href="index.html">Renamer</a>
+              <a class="nav-link" href="calculator.html">Stealth/Speed</a>
+              <a class="nav-link" href="stat.html"><span style="color:#98ef47">></span>Price Info</a>
+            </nav>
+          </div>
+            <br>
+            <h1>Price Statistic</h1>
+            <h4 style="color:#98ef47">Kolobok and prizes price information</h4>
+            <!-- <div class="container-fluid"> -->
+            <div class="container">
+              <div class="row">
+                  <div class="col-12">
+                    <p style="color:#98ef47; font-size: normal;" id="kolobokpriceinfo" name='kolobok'></p>
+                    <p style="color:#a147ef; font-size: normal;" id="priceinfo" name='epic'></p>
+                    <p style="color:#ef6647; font-size: normal;" id="priceinfo" name='rare'></p>
+                    <p style="color:#2b6ee3; font-size: normal;" id="priceinfo" name='uncommon'></p>
+                    <p style="color:#cad08f; font-size: normal;" id="commonpriceinfo" name='common'></p>
+                  </div>
+                 
+              </div>
+            <div class="chart-container" style="position: relative; margin:auto">
+              <div class="row">
+                    <canvas id="kolobok"></canvas>
+              </div>
+                  <div class="row">
+                    <canvas id="common"></canvas>
+                  </div>
+                  <div class="row">
+                    <canvas id="uncommon"></canvas>
+                  </div>
+                  <div class="row">
+                    <canvas id="rare"></canvas>
+                  </div>
+                  <div class="row">
+                    <canvas id="epic"></canvas>
+                  </div>
+              </div>
+           </div>
+            <br><br>
+        <div class="container">
+          <h4>If you like it, feel free to dotate me some WAX or NFT.</h4>
+            <h4>Created by <a href="https://t.me/zippyz">dr.Avicenna.</a>(c) 2021</h4>
+            <h4>WAX Account Name: <a href="https://wax.atomichub.io/explorer/account/gidba.wam">gidba.wam</a></h4>
+            <br>
+        </div>
+        </div>
+        <script src="js/chart_render.js"></script>
+    </body>
+</html>
