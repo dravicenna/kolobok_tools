@@ -15,4 +15,4 @@ async function calc() {
     let speed_stealth = 'STEALTH: ' +  stealth + ' SPEED: ' + speed
     document.getElementById('genname').textContent = genome_info;
     document.getElementById('genresponse').textContent = speed_stealth;
-} 
+    }
