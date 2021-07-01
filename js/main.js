@@ -39,39 +39,39 @@ async function login() {
 } 
 
 async function sign() {
-if(!wax.api) {
-    // return document.getElementById('autologin').append('* Login first *');
-    document.getElementById('autologin').textContent = '* Login first *';
-    return
-}
-var kolo_id = document.getElementById('koloid').value;
-var kolo_name = document.getElementById('name').value;
-try {
-    const result = await wax.api.transact({
+    if(!wax.api) {
+        // return document.getElementById('autologin').append('* Login first *');
+        document.getElementById('autologin').textContent = '* Login first *';
+        return
+    }
+    var kolo_id = document.getElementById('koloid').value;
+    var kolo_name = document.getElementById('name').value;
+    try {
+        const result = await wax.api.transact({
 
-    actions: [{
-        account: 'ilovekolobok',
-        name: 'rename',
-        authorization: [{
-            actor: wax.userAccount,
-            permission: 'active',
-            }],
-        data: {
-            owner: wax.userAccount,
-            assetid: kolo_id,
-            name: kolo_name,
-            memo: ''
-            },            
-        }]
-    }, {
-    blocksBehind: 3,
-    expireSeconds: 30
-    });
-    var trx_id = result['transaction_id'];
-    var str = 'Done! Transaction # ' + trx_id;
-    document.getElementById('response').textContent = str;
-    // document.getElementById('response').textContent = JSON.stringify(result, null, 2);
-} catch(e) {
-    document.getElementById('response').textContent = e.message;
-}
+        actions: [{
+            account: 'ilovekolobok',
+            name: 'rename',
+            authorization: [{
+                actor: wax.userAccount,
+                permission: 'active',
+                }],
+            data: {
+                owner: wax.userAccount,
+                assetid: kolo_id,
+                name: kolo_name,
+                memo: ''
+                },            
+            }]
+        }, {
+        blocksBehind: 3,
+        expireSeconds: 30
+        });
+        var trx_id = result['transaction_id'];
+        var str = 'Done! Transaction # ' + trx_id;
+        document.getElementById('response').textContent = str;
+        // document.getElementById('response').textContent = JSON.stringify(result, null, 2);
+    } catch(e) {
+        document.getElementById('response').textContent = e.message;
+    }
 }
