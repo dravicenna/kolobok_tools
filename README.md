@@ -1,5 +1,5 @@
 # Website for kolobok players
-Website with basic tools for wax.kolobok.io game
+Website with basic tools for [wax.kolobok.io](https://wax.kolobok.io) game
 
 ![Home page](https://user-images.githubusercontent.com/39538632/178502960-276c7cf1-9b16-494c-98fd-21e8df72cfd9.png)
 ## Demo:
